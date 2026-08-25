@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: resumeai-optimizer
+    runtime: python
+    repo: https://github.com/yourusername/resumeai-optimizer
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: KIMI_API_KEY
+        value: your-kimi-api-key
+      - key: GUMROAD_PRODUCT_ID
+        value: ai-resume-optimizer
+      - key: GUMROAD_API_KEY
+        value: your-gumroad-api-key

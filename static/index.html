@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeAI - AI English Resume Optimizer | Chinese to Professional ATS English</title>
+    <meta name="description" content="Transform your Chinese resume into a professional, ATS-optimized English resume in 60 seconds. Powered by AI. Perfect for study abroad, multinational jobs, and overseas careers.">
+    <meta name="keywords" content="resume optimizer, English resume, ATS resume, Chinese to English resume, AI resume, study abroad resume, job application">
+    <meta property="og:title" content="ResumeAI - AI English Resume Optimizer">
+    <meta property="og:description" content="Transform your Chinese resume into a professional, ATS-optimized English resume in 60 seconds.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://resumeai.example.com">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; color: white; padding: 40px 20px 20px; }
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        header p { font-size: 1.2em; opacity: 0.9; }
+        .badge {
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 5px 15px; border-radius: 20px; font-size: 0.85em; margin-top: 15px;
+        }
+        .main-card {
+            background: white; border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden;
+        }
+        .access-section {
+            padding: 40px; text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .access-section h2 { margin-bottom: 10px; color: #333; }
+        .access-section p { color: #666; margin-bottom: 20px; }
+        .access-input {
+            display: flex; gap: 10px; max-width: 500px; margin: 0 auto;
+        }
+        .access-input input {
+            flex: 1; padding: 14px 18px; border: 2px solid #e0e0e0;
+            border-radius: 10px; font-size: 15px;
+        }
+        .access-input input:focus { outline: none; border-color: #667eea; }
+        .btn {
+            display: inline-block; padding: 14px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; border: none; border-radius: 10px;
+            font-size: 15px; font-weight: 600; cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(102,126,234,0.4); }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .btn-secondary { background: #f0f0f0; color: #555; }
+        .buy-link {
+            display: inline-block; margin-top: 15px; color: #667eea;
+            text-decoration: none; font-weight: 600;
+        }
+        .buy-link:hover { text-decoration: underline; }
+        .usage-info {
+            background: #f0f4ff; padding: 12px 20px; border-radius: 8px;
+            margin-bottom: 20px; font-size: 14px; color: #555;
+        }
+        .tabs { display: flex; border-bottom: 1px solid #eee; }
+        .tab {
+            flex: 1; padding: 16px; text-align: center; cursor: pointer;
+            font-weight: 600; color: #999; transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        .tab.active { color: #667eea; border-bottom-color: #667eea; }
+        .tab-content { display: none; padding: 30px; }
+        .tab-content.active { display: block; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 8px; color: #555; }
+        textarea {
+            width: 100%; min-height: 250px; padding: 15px;
+            border: 2px solid #e0e0e0; border-radius: 10px;
+            font-size: 14px; font-family: 'Courier New', monospace; resize: vertical;
+        }
+        textarea:focus { outline: none; border-color: #667eea; }
+        .output-area {
+            background: #f8f9fa; border-radius: 10px; padding: 20px;
+            min-height: 250px; white-space: pre-wrap; font-size: 14px; line-height: 1.8;
+        }
+        .output-area h1, .output-area h2, .output-area h3 { margin: 15px 0 8px; }
+        .output-area ul { margin-left: 20px; margin-bottom: 10px; }
+        .actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .loading { display: none; text-align: center; padding: 40px; }
+        .loading.active { display: block; }
+        .spinner {
+            width: 50px; height: 50px; border: 4px solid #f0f0f0;
+            border-top: 4px solid #667eea; border-radius: 50%;
+            animation: spin 1s linear infinite; margin: 0 auto 20px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .error {
+            background: #fee; color: #c33; padding: 15px; border-radius: 10px;
+            margin-bottom: 20px; display: none;
+        }
+        .error.active { display: block; }
+        .features {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; margin-top: 40px;
+        }
+        .feature {
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            padding: 25px; border-radius: 12px; color: white;
+        }
+        .feature h3 { margin-bottom: 10px; font-size: 1.1em; }
+        .feature p { opacity: 0.85; font-size: 0.9em; }
+        .how-it-works {
+            background: white; border-radius: 16px; padding: 40px;
+            margin-top: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .how-it-works h2 { text-align: center; margin-bottom: 30px; color: #333; }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .step { text-align: center; }
+        .step-number {
+            width: 50px; height: 50px; background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 1.5em; font-weight: 700;
+            margin: 0 auto 15px;
+        }
+        .step h4 { margin-bottom: 8px; color: #333; }
+        .step p { color: #666; font-size: 0.9em; }
+        footer { text-align: center; color: white; padding: 40px 20px; opacity: 0.8; }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8em; }
+            .tab-content { padding: 20px; }
+            .access-input { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ResumeAI</h1>
+            <p>AI-Powered English Resume Optimizer</p>
+            <div class="badge">Chinese → Professional English • ATS-Optimized • 60 Seconds</div>
+        </header>
+
+        <div class="main-card">
+            <!-- Access Section -->
+            <div class="access-section" id="access-section">
+                <h2>Enter Your Access Code</h2>
+                <p>Enter the order ID or license key from your Gumroad purchase to unlock the AI resume optimizer.</p>
+                <div class="access-input">
+                    <input type="text" id="access-code" placeholder="Enter your order ID or license key">
+                    <button class="btn" onclick="verifyAccess()">Unlock</button>
+                </div>
+                <a href="https://yangster4766.gumroad.com/l/ai-resume-optimizer" target="_blank" class="buy-link">Don't have access? Purchase for $9.90 →</a>
+                <div class="error" id="access-error"></div>
+            </div>
+
+            <!-- Main App (hidden until verified) -->
+            <div id="main-app" style="display:none;">
+                <div class="usage-info" id="usage-info"></div>
+                
+                <div class="tabs">
+                    <div class="tab active" data-tab="resume">Resume Optimizer</div>
+                    <div class="tab" data-tab="cover">Cover Letter</div>
+                </div>
+
+                <!-- Resume Tab -->
+                <div class="tab-content active" id="resume-tab">
+                    <div class="error" id="resume-error"></div>
+                    <div class="input-group">
+                        <label>Paste your Chinese resume here:</label>
+                        <textarea id="chinese-resume" placeholder="粘贴你的中文简历...&#10;&#10;例如：&#10;姓名：张三&#10;电话：138-xxxx-xxxx&#10;邮箱：zhangsan@email.com&#10;&#10;工作经历：&#10;2020-至今  ABC科技有限公司  高级产品经理&#10;- 负责公司核心产品的规划和设计&#10;- 带领5人团队完成产品迭代&#10;- 产品日活从1万增长到10万&#10;&#10;教育背景：&#10;2016-2020  武汉大学  计算机科学与技术  本科"></textarea>
+                    </div>
+                    <button class="btn" id="optimize-btn" onclick="optimizeResume()">Optimize My Resume</button>
+                    <div class="loading" id="resume-loading">
+                        <div class="spinner"></div>
+                        <p>AI is optimizing your resume...</p>
+                        <p style="font-size:0.85em;color:#999;margin-top:10px;">This usually takes 30-60 seconds</p>
+                    </div>
+                    <div id="resume-result" style="display:none;margin-top:30px;">
+                        <div class="input-group">
+                            <label>Your optimized English resume:</label>
+                            <div class="output-area" id="resume-output"></div>
+                        </div>
+                        <div class="actions">
+                            <button class="btn" onclick="copyResume()">Copy to Clipboard</button>
+                            <button class="btn btn-secondary" onclick="downloadResume()">Download .txt</button>
+                            <button class="btn btn-secondary" onclick="resetResume()">New Resume</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cover Letter Tab -->
+                <div class="tab-content" id="cover-tab">
+                    <div class="error" id="cover-error"></div>
+                    <div class="input-group">
+                        <label>Your resume (English or Chinese):</label>
+                        <textarea id="cover-resume" placeholder="Paste your resume here..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>Job description (optional):</label>
+                        <textarea id="job-desc" placeholder="Paste the job description for a tailored cover letter..." style="min-height:120px;"></textarea>
+                    </div>
+                    <button class="btn" id="cover-btn" onclick="generateCoverLetter()">Generate Cover Letter</button>
+                    <div class="loading" id="cover-loading">
+                        <div class="spinner"></div>
+                        <p>AI is writing your cover letter...</p>
+                    </div>
+                    <div id="cover-result" style="display:none;margin-top:30px;">
+                        <div class="input-group">
+                            <label>Your cover letter:</label>
+                            <div class="output-area" id="cover-output"></div>
+                        </div>
+                        <div class="actions">
+                            <button class="btn" onclick="copyCover()">Copy to Clipboard</button>
+                            <button class="btn btn-secondary" onclick="downloadCover()">Download .txt</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Purchase Access</h4>
+                    <p>Buy access for $9.90 on Gumroad. Instant delivery.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Enter Code</h4>
+                    <p>Enter your order ID or license key to unlock the tool.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Paste Resume</h4>
+                    <p>Paste your Chinese resume into the optimizer.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Get English Resume</h4>
+                    <p>Receive your ATS-optimized English resume in 60 seconds.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h3>ATS-Optimized</h3>
+                <p>Formatted to pass Applicant Tracking Systems used by 99% of Fortune 500 companies.</p>
+            </div>
+            <div class="feature">
+                <h3>Native English</h3>
+                <p>Professional, natural-sounding English that impresses hiring managers.</p>
+            </div>
+            <div class="feature">
+                <h3>Action Verbs</h3>
+                <p>Strong action verbs and quantified achievements that stand out.</p>
+            </div>
+            <div class="feature">
+                <h3>Fast Delivery</h3>
+                <p>Get your optimized resume in under 60 seconds. 3 revisions included.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 ResumeAI. Powered by AI. All resumes are processed securely.</p>
+        </footer>
+    </div>
+
+    <script>
+        let currentOrderId = null;
+        let isVerified = false;
+
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab + '-tab').classList.add('active');
+            });
+        });
+
+        async function verifyAccess() {
+            const code = document.getElementById('access-code').value.trim();
+            const errorEl = document.getElementById('access-error');
+            
+            if (!code) {
+                showError(errorEl, 'Please enter your access code.');
+                return;
+            }
+            
+            errorEl.classList.remove('active');
+            
+            try {
+                const response = await fetch('/api/verify-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ order_id: code })
+                });
+                
+                const data = await response.json();
+                
+                if (data.valid) {
+                    isVerified = true;
+                    currentOrderId = code;
+                    document.getElementById('access-section').style.display = 'none';
+                    document.getElementById('main-app').style.display = 'block';
+                    document.getElementById('usage-info').textContent = 
+                        `Access verified. You have ${data.remaining} of ${data.max_usage} resume optimizations remaining.`;
+                } else {
+                    showError(errorEl, data.error || 'Invalid access code. Please check your purchase confirmation email.');
+                }
+            } catch (e) {
+                showError(errorEl, 'Network error. Please try again.');
+            }
+        }
+
+        async function optimizeResume() {
+            const resume = document.getElementById('chinese-resume').value.trim();
+            const errorEl = document.getElementById('resume-error');
+            
+            if (!isVerified) {
+                showError(errorEl, 'Please verify your access code first.');
+                return;
+            }
+            if (!resume) {
+                showError(errorEl, 'Please paste your Chinese resume first.');
+                return;
+            }
+            if (resume.length < 50) {
+                showError(errorEl, 'Resume content too short. Please provide more details.');
+                return;
+            }
+            
+            errorEl.classList.remove('active');
+            document.getElementById('optimize-btn').disabled = true;
+            document.getElementById('resume-loading').classList.add('active');
+            document.getElementById('resume-result').style.display = 'none';
+            
+            try {
+                const response = await fetch('/api/optimize', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ resume, order_id: currentOrderId })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('resume-output').textContent = data.resume;
+                    document.getElementById('resume-result').style.display = 'block';
+                    if (data.remaining !== undefined) {
+                        document.getElementById('usage-info').textContent = 
+                            `You have ${data.remaining} resume optimizations remaining.`;
+                    }
+                } else {
+                    showError(errorEl, data.error || 'Optimization failed. Please try again.');
+                }
+            } catch (e) {
+                showError(errorEl, 'Network error. Please try again.');
+            } finally {
+                document.getElementById('optimize-btn').disabled = false;
+                document.getElementById('resume-loading').classList.remove('active');
+            }
+        }
+
+        async function generateCoverLetter() {
+            const resume = document.getElementById('cover-resume').value.trim();
+            const jobDesc = document.getElementById('job-desc').value.trim();
+            const errorEl = document.getElementById('cover-error');
+            
+            if (!isVerified) {
+                showError(errorEl, 'Please verify your access code first.');
+                return;
+            }
+            if (!resume) {
+                showError(errorEl, 'Please paste your resume first.');
+                return;
+            }
+            
+            errorEl.classList.remove('active');
+            document.getElementById('cover-btn').disabled = true;
+            document.getElementById('cover-loading').classList.add('active');
+            document.getElementById('cover-result').style.display = 'none';
+            
+            try {
+                const response = await fetch('/api/cover-letter', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ resume, job_description: jobDesc, order_id: currentOrderId })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('cover-output').textContent = data.cover_letter;
+                    document.getElementById('cover-result').style.display = 'block';
+                } else {
+                    showError(errorEl, data.error || 'Generation failed. Please try again.');
+                }
+            } catch (e) {
+                showError(errorEl, 'Network error. Please try again.');
+            } finally {
+                document.getElementById('cover-btn').disabled = false;
+                document.getElementById('cover-loading').classList.remove('active');
+            }
+        }
+
+        function showError(el, msg) {
+            el.textContent = msg;
+            el.classList.add('active');
+        }
+
+        function copyResume() {
+            const text = document.getElementById('resume-output').textContent;
+            navigator.clipboard.writeText(text).then(() => alert('Copied to clipboard!'));
+        }
+
+        function downloadResume() {
+            const text = document.getElementById('resume-output').textContent;
+            downloadFile(text, 'optimized-resume.txt');
+        }
+
+        function copyCover() {
+            const text = document.getElementById('cover-output').textContent;
+            navigator.clipboard.writeText(text).then(() => alert('Copied to clipboard!'));
+        }
+
+        function downloadCover() {
+            const text = document.getElementById('cover-output').textContent;
+            downloadFile(text, 'cover-letter.txt');
+        }
+
+        function downloadFile(text, filename) {
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function resetResume() {
+            document.getElementById('chinese-resume').value = '';
+            document.getElementById('resume-result').style.display = 'none';
+        }
+
+        // Allow Enter key to submit access code
+        document.getElementById('access-code').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') verifyAccess();
+        });
+    </script>
+</body>
+</html>
