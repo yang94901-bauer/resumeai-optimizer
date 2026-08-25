@@ -23,6 +23,16 @@ verified_orders = {}
 # Rate limiting: each order can generate up to 3 resumes
 order_usage = {}
 
+# Pre-generated license codes (loaded from file if exists)
+LICENSE_CODES = set()
+try:
+    codes_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'license_codes.txt')
+    if os.path.exists(codes_file):
+        with open(codes_file, 'r') as f:
+            LICENSE_CODES = {line.strip() for line in f if line.strip()}
+except Exception:
+    pass
+
 # System prompt for resume optimization
 RESUME_SYSTEM_PROMPT = """You are an expert HR consultant and resume writer specializing in helping Chinese professionals create English resumes that pass ATS (Applicant Tracking System) filters and impress Western hiring managers.
 
@@ -103,6 +113,11 @@ def verify_gumroad_order(order_id):
     except Exception as e:
         # If API fails, allow demo mode for known test orders
         pass
+    
+    # Check pre-generated license codes
+    if order_id in LICENSE_CODES:
+        verified_orders[order_id] = {'license_code': True}
+        return True, {'license_code': True}
     
     # Demo mode: allow orders starting with "DEMO-" for testing
     if order_id.startswith('DEMO-'):
