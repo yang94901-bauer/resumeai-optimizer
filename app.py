@@ -285,6 +285,21 @@ def health():
     })
 
 
+@app.route('/blog')
+def blog():
+    return send_from_directory('static', 'blog.html')
+
+
+@app.route('/blog-cover-letter')
+def blog_cover_letter():
+    return send_from_directory('static', 'blog-cover-letter.html')
+
+
+@app.route('/blog-ats')
+def blog_ats():
+    return send_from_directory('static', 'blog-ats-secrets.html')
+
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
