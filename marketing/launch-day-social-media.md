@@ -2,7 +2,7 @@
 # 发布时间：2026-09-01（周二）PT 午夜 = 北京时间 9/1 15:01
 # 产品：ResumeAI - AI English Resume Optimizer
 # PH 链接：https://www.producthunt.com/products/resumeai-19/resumeai-23
-# 网站：https://landing-azure-nine-59.vercel.app/
+# 网站：https://yang94901-bauer.github.io/resumeai-optimizer/
 # 注意：不要直接求 upvote，保持自然分享
 
 ---
@@ -30,7 +30,7 @@ Because 75% of resumes are rejected by ATS before a human ever sees them. And ma
 
 ResumeAI uses AI to rewrite your Chinese resume into native, ATS-optimized English with action verbs and quantified achievements.
 
-Try it free → https://landing-azure-nine-59.vercel.app/
+Try it free → https://yang94901-bauer.github.io/resumeai-optimizer/
 
 #ResumeTips #ATS #CareerAdvice #AI
 
@@ -44,7 +44,7 @@ Before vs After: Machine Translation vs ResumeAI
 
 Same experience. Completely different impact.
 
-Optimize yours → https://landing-azure-nine-59.vercel.app/
+Optimize yours → https://yang94901-bauer.github.io/resumeai-optimizer/
 
 #Resume #JobSearch #Career #EnglishResume
 
@@ -55,7 +55,7 @@ Huge thanks to everyone who checked out ResumeAI on Product Hunt today! 🙏
 
 If you haven't tried it yet, it's free to test. Paste your Chinese resume and see the difference instantly.
 
-https://landing-azure-nine-59.vercel.app/
+https://yang94901-bauer.github.io/resumeai-optimizer/
 
 #ProductHunt #Gratitude #Resume #AI
 
@@ -128,7 +128,7 @@ As someone who's seen countless talented professionals lose job opportunities be
 - Generates a matching cover letter
 - Action verbs + quantified achievements = native-level quality
 
-**Try it free:** https://landing-azure-nine-59.vercel.app/
+**Try it free:** https://yang94901-bauer.github.io/resumeai-optimizer/
 
 **Support our launch:** https://www.producthunt.com/products/resumeai-19/resumeai-23
 

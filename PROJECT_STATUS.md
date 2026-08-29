@@ -9,7 +9,7 @@
 
 ## 技术状态
 - 主站（AI功能）：https://yang94901.pythonanywhere.com/
-- Landing Page（PH用）：https://landing-azure-nine-59.vercel.app/（Vercel部署，resumeai-tool项目）
+- Landing Page（PH用）：https://yang94901-bauer.github.io/resumeai-optimizer/（Vercel部署，resumeai-tool项目）
 - 7+ 端点全部 HTTP 200，/api/health 显示 gumroad_configured:true + kimi_configured:true
 - 三产品 license 验证通过（POST /v2/licenses/verify）
 - 预生成兑换码验证通过（license_codes.txt）
