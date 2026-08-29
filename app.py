@@ -15,8 +15,27 @@ CORS(app)
 # Configuration
 KIMI_API_KEY = os.environ.get('KIMI_API_KEY', 'your-kimi-api-key-here')
 KIMI_API_URL = 'https://api.moonshot.cn/v1/chat/completions'
-GUMROAD_API_KEY = os.environ.get('GUMROAD_API_KEY', 'your-gumroad-api-key-here')
-GUMROAD_PRODUCT_ID = os.environ.get('GUMROAD_PRODUCT_ID', 'your-product-id')
+
+
+def _read_secret(env_name, filename, default=''):
+    """Read a secret from env var first, then from a local file (server-side only)."""
+    val = os.environ.get(env_name, '')
+    if val and val not in ('your-gumroad-api-key-here', 'your-product-id', 'ai-resume-optimizer'):
+        return val
+    try:
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+        if os.path.exists(p):
+            with open(p) as f:
+                v = f.read().strip()
+                if v:
+                    return v
+    except Exception:
+        pass
+    return default
+
+
+GUMROAD_API_KEY = _read_secret('GUMROAD_API_KEY', 'gumroad_api_key.txt', 'your-gumroad-api-key-here')
+GUMROAD_PRODUCT_ID = _read_secret('GUMROAD_PRODUCT_ID', 'gumroad_product_id.txt', 'your-product-id')
 
 # Simple in-memory store for verified orders (in production use Redis/DB)
 verified_orders = {}
