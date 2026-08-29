@@ -37,6 +37,7 @@ def _read_secret(env_name, filename, default=''):
 GUMROAD_API_KEY = _read_secret('GUMROAD_API_KEY', 'gumroad_api_key.txt', 'your-gumroad-api-key-here')
 GUMROAD_PRODUCT_ID = _read_secret('GUMROAD_PRODUCT_ID', 'gumroad_product_id.txt', 'your-product-id')
 GUMROAD_PRODUCT_ID_2 = _read_secret('GUMROAD_PRODUCT_ID_2', 'gumroad_product_id2.txt', None) or None
+GUMROAD_PRODUCT_ID_3 = _read_secret('GUMROAD_PRODUCT_ID_3', 'gumroad_product_id3.txt', None) or None
 
 # Simple in-memory store for verified orders (in production use Redis/DB)
 verified_orders = {}
@@ -105,8 +106,9 @@ def verify_gumroad_order(order_id):
         # Try license key verification first (Gumroad requires POST)
         # Support both products (AI Resume Optimizer + Interview Q&A Pack)
         product_ids = [GUMROAD_PRODUCT_ID]
-        if GUMROAD_PRODUCT_ID_2:
-            product_ids.append(GUMROAD_PRODUCT_ID_2)
+        for extra in (GUMROAD_PRODUCT_ID_2, GUMROAD_PRODUCT_ID_3):
+            if extra:
+                product_ids.append(extra)
 
         for pid in product_ids:
             response = requests.post(
