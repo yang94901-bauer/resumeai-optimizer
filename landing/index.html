@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeAI - AI English Resume Optimizer | Chinese to ATS-Ready English Resume</title>
+    <meta name="description" content="Transform your Chinese resume into a professional, ATS-optimized English resume in 30 seconds. AI-powered resume optimizer for international job seekers and students.">
+    <meta name="keywords" content="AI resume optimizer, English resume, ATS resume, Chinese to English resume, cover letter generator, international jobs, resume builder">
+    <meta property="og:title" content="ResumeAI - AI English Resume Optimizer">
+    <meta property="og:description" content="Transform your Chinese resume into a professional, ATS-optimized English resume in 30 seconds.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://resumeai.vercel.app">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">ResumeAI</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#features" class="text-gray-600 hover:text-gray-900 text-sm font-medium">Features</a>
+                    <a href="#how-it-works" class="text-gray-600 hover:text-gray-900 text-sm font-medium">How it works</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-gray-900 text-sm font-medium">Pricing</a>
+                    <a href="#faq" class="text-gray-600 hover:text-gray-900 text-sm font-medium">FAQ</a>
+                </div>
+                <a href="https://yang94901.pythonanywhere.com/" target="_blank" class="gradient-bg text-white px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                        <span class="w-2 h-2 bg-purple-500 rounded-full pulse-dot"></span>
+                        AI-Powered Resume Optimization
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                        Chinese Resume to <span class="gradient-text">ATS-Ready English</span> in 30 Seconds
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Stop losing job opportunities because your English resume doesn't pass ATS filters. ResumeAI transforms your Chinese resume into a professional, keyword-optimized English resume — plus a matching cover letter.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="https://yang94901.pythonanywhere.com/" target="_blank" class="gradient-bg text-white px-8 py-4 rounded-xl text-lg font-semibold hover:opacity-90 transition text-center">
+                            Optimize My Resume →
+                        </a>
+                        <a href="https://yangster4766.gumroad.com/l/ai-resume-optimizer" target="_blank" class="bg-white border-2 border-gray-200 text-gray-900 px-8 py-4 rounded-xl text-lg font-semibold hover:border-purple-400 transition text-center">
+                            Buy License — $9.90
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-6 text-sm text-gray-500">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            No signup needed
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Instant results
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            ATS optimized
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="float-animation">
+                        <div class="bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
+                            <div class="flex items-center gap-2 mb-4">
+                                <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                                <span class="text-xs text-gray-400 ml-2">resumeai — optimizer</span>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="bg-gray-50 rounded-lg p-3">
+                                    <div class="text-xs text-gray-400 mb-1">Chinese Resume (Input)</div>
+                                    <div class="text-sm text-gray-600 font-mono">负责项目管理，协调跨部门团队...</div>
+                                </div>
+                                <div class="flex justify-center">
+                                    <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                                </div>
+                                <div class="bg-purple-50 rounded-lg p-3 border border-purple-100">
+                                    <div class="text-xs text-purple-400 mb-1">English Resume (Output)</div>
+                                    <div class="text-sm text-gray-800 font-mono">Spearheaded project management, orchestrated cross-functional teams of 15+, delivered 20% efficiency gain...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
+                        ATS Score: 92/100
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="py-12 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">30s</div>
+                    <div class="text-purple-200 text-sm">Average processing time</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">92%</div>
+                    <div class="text-purple-200 text-sm">Average ATS score</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">500+</div>
+                    <div class="text-purple-200 text-sm">ATS keywords integrated</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">$9.90</div>
+                    <div class="text-purple-200 text-sm">One-time payment</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Everything you need to <span class="gradient-text">land international jobs</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Powered by advanced AI, specifically trained for Chinese-to-English resume translation and ATS optimization.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 card-hover border border-gray-100">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI Resume Optimization</h3>
+                    <p class="text-gray-600 leading-relaxed">Paste your Chinese resume and get a professionally written English version with action verbs, quantified achievements, and industry-standard formatting.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 card-hover border border-gray-100">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cover Letter Generator</h3>
+                    <p class="text-gray-600 leading-relaxed">Get a tailored cover letter that matches your resume and target position. No more generic templates — each letter is customized to your experience.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 card-hover border border-gray-100">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">ATS Keyword Optimization</h3>
+                    <p class="text-gray-600 leading-relaxed">75% of resumes are rejected by ATS before a human sees them. Our AI integrates 500+ industry-specific keywords to ensure your resume passes every filter.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 card-hover border border-gray-100">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Instant Results</h3>
+                    <p class="text-gray-600 leading-relaxed">No waiting, no back-and-forth with writers. Get your optimized resume and cover letter in under a minute. Copy, paste, and apply.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 card-hover border border-gray-100">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Privacy First</h3>
+                    <p class="text-gray-600 leading-relaxed">Your resume data is processed securely and never stored. We don't share your personal information with third parties.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 card-hover border border-gray-100">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">One-Time Payment</h3>
+                    <p class="text-gray-600 leading-relaxed">No subscriptions, no hidden fees. Pay $9.90 once and get 3 optimization credits. Use them for yourself or share with friends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">How it works</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Three simple steps to your professional English resume</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-bold mb-3">Paste Your Chinese Resume</h3>
+                    <p class="text-gray-600">Copy your Chinese resume text and paste it into the optimizer. Any format works — plain text, Word, or PDF content.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-bold mb-3">AI Optimizes in 30 Seconds</h3>
+                    <p class="text-gray-600">Our AI analyzes your experience, translates to professional English, integrates ATS keywords, and formats it to industry standards.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-bold mb-3">Copy & Apply</h3>
+                    <p class="text-gray-600">Get your optimized English resume + matching cover letter. Copy them into your preferred template and start applying to international jobs.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="https://yang94901.pythonanywhere.com/" target="_blank" class="gradient-bg text-white px-8 py-4 rounded-xl text-lg font-semibold hover:opacity-90 transition inline-block">
+                    Try It Now →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Comparison -->
+    <section class="py-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">See the difference</h2>
+                <p class="text-lg text-gray-600">Machine translation vs. ResumeAI optimization</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-red-50 rounded-2xl p-6 border border-red-100">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-red-400 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </div>
+                        <span class="font-bold text-red-700">Machine Translation</span>
+                    </div>
+                    <div class="space-y-3 text-sm text-gray-700">
+                        <p>"I am responsible for project management, coordinate cross-department team, complete project on time."</p>
+                        <p class="text-red-500 text-xs">❌ Passive voice, weak verbs, no metrics, awkward grammar</p>
+                    </div>
+                </div>
+                <div class="bg-green-50 rounded-2xl p-6 border border-green-100">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span class="font-bold text-green-700">ResumeAI Optimized</span>
+                    </div>
+                    <div class="space-y-3 text-sm text-gray-700">
+                        <p>"Spearheaded end-to-end project management, orchestrating cross-functional teams of 15+ to deliver $2M initiatives 10% ahead of schedule."</p>
+                        <p class="text-green-600 text-xs">✅ Action verbs, quantified impact, ATS keywords, native fluency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Simple, transparent pricing</h2>
+                <p class="text-lg text-gray-600">Pay once, use anytime. No subscriptions.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+                    <h3 class="text-lg font-bold mb-2">Resume Optimizer</h3>
+                    <div class="text-4xl font-extrabold mb-4">$9.90</div>
+                    <p class="text-gray-500 text-sm mb-6">One-time payment · 3 credits</p>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>AI English resume optimization</li>
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Cover letter generator</li>
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>ATS keyword optimization</li>
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>3 optimization credits</li>
+                    </ul>
+                    <a href="https://yangster4766.gumroad.com/l/ai-resume-optimizer" target="_blank" class="block w-full text-center gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">Get Started</a>
+                </div>
+                <div class="bg-white rounded-2xl p-8 border-2 border-purple-500 relative shadow-xl">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 gradient-bg text-white px-4 py-1 rounded-full text-xs font-bold">MOST POPULAR</div>
+                    <h3 class="text-lg font-bold mb-2">Interview Q&A Pack</h3>
+                    <div class="text-4xl font-extrabold mb-4">$4.90</div>
+                    <p class="text-gray-500 text-sm mb-6">One-time payment</p>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>50 common interview questions</li>
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>High-score answer templates</li>
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>STAR method framework</li>
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Salary negotiation scripts</li>
+                    </ul>
+                    <a href="https://yangster4766.gumroad.com/l/interview-qa-pack" target="_blank" class="block w-full text-center gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">Get Started</a>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+                    <h3 class="text-lg font-bold mb-2">Complete Bundle</h3>
+                    <div class="text-4xl font-extrabold mb-4">$29.00</div>
+                    <p class="text-gray-500 text-sm mb-6">One-time payment · Save 30%</p>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Everything in Resume Optimizer</li>
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Everything in Interview Pack</li>
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>20 cover letter templates</li>
+                        <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>LinkedIn optimization guide</li>
+                    </ul>
+                    <a href="https://yangster4766.gumroad.com/l/uuqzqb" target="_blank" class="block w-full text-center gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">Get Bundle</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Frequently asked questions</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl p-6 border border-gray-100">
+                    <h3 class="font-bold text-lg mb-2">How does the AI resume optimization work?</h3>
+                    <p class="text-gray-600">Our AI analyzes your Chinese resume content, translates it into professional English, integrates industry-specific ATS keywords, and reformats it using action verbs and quantified achievements. The result is a resume that passes ATS filters and impresses hiring managers.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-gray-100">
+                    <h3 class="font-bold text-lg mb-2">What format should my resume be in?</h3>
+                    <p class="text-gray-600">Any format works. Simply copy the text content from your Chinese resume (Word, PDF, or any document) and paste it into the optimizer. The AI handles the rest.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-gray-100">
+                    <h3 class="font-bold text-lg mb-2">How many times can I use it?</h3>
+                    <p class="text-gray-600">Each $9.90 purchase includes 3 optimization credits. Use them for different versions of your resume, or share with friends. Each credit generates one optimized resume + one cover letter.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-gray-100">
+                    <h3 class="font-bold text-lg mb-2">Is my data safe?</h3>
+                    <p class="text-gray-600">Yes. Your resume content is processed securely and never stored on our servers after generation. We don't share your personal information with third parties.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-gray-100">
+                    <h3 class="font-bold text-lg mb-2">Can I get a refund?</h3>
+                    <p class="text-gray-600">We offer a 7-day money-back guarantee if you're not satisfied. Contact us with your order details and we'll process the refund.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 px-4 gradient-bg">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-6">Ready to land your dream international job?</h2>
+            <p class="text-xl text-purple-100 mb-8">Join hundreds of job seekers who transformed their resumes with ResumeAI.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://yang94901.pythonanywhere.com/" target="_blank" class="bg-white text-purple-700 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-purple-50 transition">
+                    Try It Free →
+                </a>
+                <a href="https://yangster4766.gumroad.com/l/ai-resume-optimizer" target="_blank" class="bg-purple-800 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-purple-900 transition border border-purple-600">
+                    Buy License — $9.90
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-gray-900 text-gray-400">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <span class="text-xl font-bold text-white">ResumeAI</span>
+                </div>
+                <div class="flex gap-8 text-sm">
+                    <a href="#features" class="hover:text-white transition">Features</a>
+                    <a href="#pricing" class="hover:text-white transition">Pricing</a>
+                    <a href="#faq" class="hover:text-white transition">FAQ</a>
+                    <a href="https://yang94901.pythonanywhere.com/" target="_blank" class="hover:text-white transition">App</a>
+                </div>
+                <div class="text-sm">
+                    © 2026 ResumeAI. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
