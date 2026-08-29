@@ -82,10 +82,10 @@ def verify_gumroad_order(order_id):
         return True, verified_orders[order_id]
     
     try:
-        # Try license key verification first
-        response = requests.get(
+        # Try license key verification first (Gumroad requires POST)
+        response = requests.post(
             f'https://api.gumroad.com/v2/licenses/verify',
-            params={
+            data={
                 'product_id': GUMROAD_PRODUCT_ID,
                 'license_key': order_id
             },
